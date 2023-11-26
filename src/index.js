@@ -1,14 +1,14 @@
-import { fetchCatByBreed, fetchBreeds } from './js/atLibrary';
+import { fetchCatByBreed, fetchBreeds } from './js/cat-api';
 const breedSelect = document.querySelector('.breed-select');
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+import Notiflix from 'notiflix';
 const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector(' .lds-hourglass ');
 
 function showSelect() {
-  breedSelect.style.display = 'block';
+  breedSelect.style.display = 'flex';
 }
 
 function hideSelect() {
@@ -35,8 +35,8 @@ fetchBreeds()
     new SlimSelect({ select: breedSelect });
   })
   .catch(err => {
-    console.log(err);
-    Notify.failure('Oops! Something went wrong! Try reloading the page!');
+  
+    Notiflix.Notify.warning('Oops! Something went wrong! Try reloading the page!');
   });
 
 function createSelector(arr) {
@@ -58,8 +58,7 @@ function setOutput(evt) {
       hideLoader();
     })
     .catch(err => {
-      console.log(err);
-      Notify.failure('Oops! Something went wrong! Try reloading the page!');
+      Notiflix.Notify.warning('Oops! Something went wrong! Try reloading the page!');
     });
 }
 

@@ -48,3 +48,7 @@
     transform: rotate(1800deg);
   }
 }
+
+.breed-select {
+  margin: 0;
+}
