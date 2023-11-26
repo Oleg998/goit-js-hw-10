@@ -48,6 +48,8 @@ function createSelector(arr) {
 
 breedSelect.addEventListener('change', setOutput);
 
+
+
 function setOutput(evt) {
   const breedId = evt.target.value;
   showLoader();
@@ -61,6 +63,8 @@ function setOutput(evt) {
       Notify.failure('Oops! Something went wrong! Try reloading the page!');
     });
 }
+
+
 function createInfo(array) {
   return array
     .map(
