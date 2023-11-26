@@ -14,7 +14,6 @@ function showSelect() {
 function hideSelect() {
   breedSelect.style.display = 'none';
 }
-
 function showLoader() {
   loader.style.display = 'block';
   catInfo.style.display = 'none';
