@@ -1,4 +1,4 @@
-import { fetchCatByBreed, fetchBreeds } from './js/сatLibrary';
+import { fetchCatByBreed, fetchBreeds } from './js/atLibrary';
 const breedSelect = document.querySelector('.breed-select');
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
