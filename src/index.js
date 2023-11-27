@@ -6,6 +6,7 @@ import 'slim-select/dist/slimselect.css';
 import Notiflix from 'notiflix';
 const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector(' .lds-hourglass ');
+const error = document.querySelector(".error")
 
 function showSelect() {
   breedSelect.style.display = 'flex';
@@ -24,6 +25,12 @@ function hideLoader() {
   catInfo.style.display = 'flex ';
 }
 
+function showEroor(){
+  loader.style.display = 'none';
+  Notiflix.Notify.warning(error.textContent);
+}
+
+error.style.display="none"
 hideSelect();
 showLoader();
 
@@ -35,8 +42,8 @@ fetchBreeds()
     new SlimSelect({ select: breedSelect });
   })
   .catch(err => {
-  
-    Notiflix.Notify.warning('Oops! Something went wrong! Try reloading the page!');
+    showEroor()
+    
   });
 
 function createSelector(arr) {
@@ -58,7 +65,7 @@ function setOutput(evt) {
       hideLoader();
     })
     .catch(err => {
-      Notiflix.Notify.warning('Oops! Something went wrong! Try reloading the page!');
+      showEroor()
     });
 }
 
