@@ -6,7 +6,7 @@ const BASE_URL = `https://api.thecatapi.com/v1/`;
 
 function fetchCatByBreed(breedId) {
     return axios
-      .get(`${BASE_URL}images/search?breed_ids11=${breedId}`)
+      .get(`${BASE_URL}images/search?breed_ids=${breedId}`)
       .then(({ data }) => data);
   }
 
