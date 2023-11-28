@@ -6,7 +6,7 @@ import 'slim-select/dist/slimselect.css';
 import Notiflix from 'notiflix';
 const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector(' .lds-hourglass ');
-const error = document.querySelector(".error")
+const error = document.querySelector('.error');
 
 function showSelect() {
   breedSelect.style.display = 'flex';
@@ -25,12 +25,12 @@ function hideLoader() {
   catInfo.style.display = 'flex ';
 }
 
-function showEroor(){
+function showEroor() {
   loader.style.display = 'none';
   Notiflix.Notify.warning(error.textContent);
 }
 
-error.style.display="none"
+error.style.display = 'none';
 hideSelect();
 showLoader();
 
@@ -41,7 +41,7 @@ fetchBreeds()
     showSelect();
     new SlimSelect({ select: breedSelect });
   })
-  .catch(err => showEroor(err));
+  .catch(showEroor());
 
 function createSelector(arr) {
   return arr
@@ -51,19 +51,21 @@ function createSelector(arr) {
 
 breedSelect.addEventListener('change', setOutput);
 
-
-
 function setOutput(evt) {
   const breedId = evt.target.value;
   showLoader();
   fetchCatByBreed(breedId)
     .then(data => {
-      catInfo.innerHTML = createInfo(data);
+      if (data.length === 0) {
+        showEroor();
+        catInfo.innerHTML = error.textContent;
+      } else {
+        catInfo.innerHTML = createInfo(data);
+      }
       hideLoader();
     })
-    .catch(err => showEroor(err));
+    .catch(showEroor());
 }
-
 
 function createInfo(array) {
   return array
