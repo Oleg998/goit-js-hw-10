@@ -41,7 +41,7 @@ fetchBreeds()
     showSelect();
     new SlimSelect({ select: breedSelect });
   })
-  .catch(showEroor());
+  .catch(showEroor);
 
 function createSelector(arr) {
   return arr
@@ -64,7 +64,7 @@ function setOutput(evt) {
       }
       hideLoader();
     })
-    .catch(showEroor());
+    .catch(showEroor);
 }
 
 function createInfo(array) {
